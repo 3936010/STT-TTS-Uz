@@ -1,19 +1,45 @@
 # STT-TTS-Uz
 
-State-of-the-art Speech-to-Text (STT) and Text-to-Speech (TTS) pipelines tailored for the Uzbek language.
+Speech-to-Text (STT) and Text-to-Speech (TTS) pipelines for the Uzbek language.
 
 ## Overview
 
-This project provides highly optimized script runners for STT and TTS models utilizing ONNX Runtime and Hugging Face's `optimum`. The core objective is to deliver high-quality, fast, and scalable Voice AI solutions for the Uzbek language with full GPU acceleration support.
+This project provides Python scripts to run STT and TTS models utilizing ONNX Runtime and Hugging Face's `optimum`. The scripts support GPU acceleration for faster inference.
 
 ## Models
 
 You can download the pre-trained ONNX models required for STT and TTS from the following link:
 🔗 **[Download Models (Google Drive)](https://drive.google.com/drive/folders/1z9gz0eWtNS8WW5PqmII7IZWRl9mCN0Aw?usp=sharing)**
 
-## Speech-to-Text (STT)
+## Usage
 
-Our STT model has been tested for accurate transcription of the Uzbek language. The pipeline accurately converts spoken Uzbek into high-quality text.
+Here is a brief guide on how to run the models on your machine:
+
+1. **Install Dependencies:**
+   Ensure you have installed the requirements using `uv` or `pip`:
+   ```bash
+   uv sync
+   # or
+   pip install -r requirements.txt
+   ```
+
+2. **Download Models:**
+   Download the TTS and STT models from the Google Drive link provided above and extract them into your workspace.
+
+3. **Update Paths in the Scripts:**
+   Before running the inference scripts, open them and update the `model_dir` path to point to the location where you saved the downloaded models:
+   - For STT: `stt_onnx_run.py`
+   - For TTS: `tts_onnx_run.py` (or `tts_onnx_run_gpu.py`)
+
+4. **Run the Inference Scripts:**
+   Once the paths are set, you can run the files via the command line:
+
+   ```bash
+   python stt_onnx_run.py
+   python tts_onnx_run.py
+   ```
+
+## Speech-to-Text (STT)
 
 ### STT Inference Result
 
@@ -24,7 +50,7 @@ When running our inference script on the test audio file `audio/test.wav`, the m
 
 ## Text-to-Speech (TTS)
 
-Our TTS system accurately synthesizes realistic and naturally flowing Uzbek speech from text. The generated audio files can be found in the `outputs/` folder.
+The generated audio outputs can be found in the `outputs/` folder.
 
 ### TTS Generated Audio
 
@@ -38,6 +64,6 @@ You can listen to generated output audio files directly below:
 ## Tech Stack
 
 - **Python 3.13**
-- **ONNX Runtime (GPU):** For accelerated model inference.
-- **Hugging Face Optimum:** For seamless ONNX model integration.
+- **ONNX Runtime (GPU):** For model inference.
+- **Hugging Face Optimum:** For ONNX model integration.
 - **Librosa:** For audio loading, resampling, and feature extraction.
