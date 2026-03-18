@@ -1,0 +1,33 @@
+# ─────────────────────────────────────────────
+# STT-TTS-Uz — Python dependencies
+# ─────────────────────────────────────────────
+
+# ── Core deep-learning ───────────────────────
+# commons.py, utils.py, tts_onnx_run.py
+torch>=2.0.0
+
+# ── ONNX inference ───────────────────────────
+# tts_onnx_run.py
+onnxruntime-gpu>=1.17.0   # swap for `onnxruntime` if no CUDA
+
+# ── HuggingFace stack (STT) ──────────────────
+# stt_onnx_run.py
+transformers>=4.38.0
+optimum[onnxruntime]>=1.18.0
+
+# ── Audio I/O ────────────────────────────────
+# stt_onnx_run.py  (load + resample audio)
+librosa>=0.10.0
+# utils.py / tts_onnx_run.py  (read/write WAV)
+scipy>=1.11.0
+
+# ── Numerical computing ──────────────────────
+# commons.py, utils.py, tts_onnx_run.py
+numpy>=1.24.0
+
+# ── Visualisation (lazy-loaded in utils.py) ──
+matplotlib>=3.8.0
+
+# ── Text processing (text/cleaners.py) ───────
+unidecode>=1.3.8
+phonemizer>=3.2.1
